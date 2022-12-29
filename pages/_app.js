@@ -2,7 +2,15 @@ import Head from "next/head"
 import Script from "next/script"
 import "bootstrap/dist/css/bootstrap.css"
 import { useEffect } from "react"
-function MyApp({ Component, pageProps }) {
+import { SessionProvider } from "next-auth/react"
+import "../styles/FormInput.css"
+import "../styles/Navbar.css"
+
+function MyApp({ Component, pageProps, session }) {
+  ;({
+    Component,
+    pageProps: { session, ...pageProps }
+  })
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap")
   }, [])
@@ -17,7 +25,10 @@ function MyApp({ Component, pageProps }) {
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossOrigin="anonymous"
       />
-      <Component {...pageProps} />
+
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
   )
 }
