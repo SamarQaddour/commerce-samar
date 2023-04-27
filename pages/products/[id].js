@@ -275,14 +275,15 @@ const data = {
 }
 export async function getStaticProps({ params }) {
   const { id } = params
+  const ii = [`${id}`][0]
 
-  const product = data?.products[`${id - 1}`]
-  const ii = [`${id}`]
+  const product = data?.products.filter((one) => {
+    return (parseInt(one.id) === parseInt(id))
+  })[0]
 
   return {
     props: {
-      product,
-      ii
+      product, ii
     }
   }
 }
@@ -304,8 +305,9 @@ export async function getStaticPaths(params) {
 }
 export default function ProductPage({ product, ii }) {
   useEffect(() => {
+    console.log(product, "product")
     console.log(ii, "ii")
-  }, [ii])
+  }, [product])
   return (
     <React.Fragment>
       <div key={product?.id}>
