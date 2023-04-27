@@ -1,7 +1,7 @@
 import { useState, React } from "react"
 import FormInput from "../components/FormInput"
 
-const validate = () => {
+const Validate = () => {
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -87,4 +87,4 @@ const validate = () => {
   )
 }
 
-export default validate
+export default Validate
