@@ -1,5 +1,5 @@
 import React from "react"
-import ProductList from "../../components/product/productList"
+import ProductList from "../../components/product/ProductList"
 
 export async function getStaticProps({ params }) {
   const { id } = params
