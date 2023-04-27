@@ -3,7 +3,7 @@ import Script from "next/script"
 import "bootstrap/dist/css/bootstrap.css"
 import { useEffect } from "react"
 import { SessionProvider } from "next-auth/react"
-import "../styles/FormInput.css"
+import "../styles/Forminput.css"
 import "../styles/Navbar.css"
 
 function MyApp({ Component, pageProps, session }) {
