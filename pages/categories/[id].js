@@ -278,9 +278,7 @@ const data = {
 export async function getStaticProps({ params }) {
   const { id } = params
 
-  // const categories = data.categories
   const categories = data.categories.filter((i) => {return parseInt(i.id) === parseInt(id)})
-  // const product = data?.products[`${id}`]
   const products = data?.products.filter((i) => {return parseInt(i.categoryId) === parseInt(id)})
   console.log(products, "product")
   return {

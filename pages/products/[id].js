@@ -276,7 +276,7 @@ const data = {
 export async function getStaticProps({ params }) {
   const { id } = params
 
-  const product = data?.products[`${id}`]
+  const product = data?.products[`${id - 1}`]
   const ii = [`${id}`]
 
   return {
@@ -308,9 +308,9 @@ export default function ProductPage({ product, ii }) {
   }, [ii])
   return (
     <React.Fragment>
-      <div key={product.id}>
-        <h3>{product.title}</h3>
-        <p>{product.description}</p>
+      <div key={product?.id}>
+        <h3>{product?.title}</h3>
+        <p>{product?.description}</p>
       </div>
       <button>Add to Cart</button>
     </React.Fragment>
