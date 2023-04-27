@@ -1,5 +1,5 @@
 import React from "react"
-import ProductList from "../components/product/productList"
+import ProductList from "../components/product/ProductList"
 
 export async function getStaticProps() {
   const res = await fetch("http://localhost:3000/products")
