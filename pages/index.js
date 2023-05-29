@@ -2,6 +2,7 @@ import React from "react"
 import CategoryList from "../components/categories/CategoryList"
 import ProductList from "../components/product/ProductList"
 import Navbar from "../components/Navbar"
+import Head from 'next/head'
 const data = {
   "products": [
     {
@@ -247,35 +248,72 @@ const data = {
   ],
   "categories": [
     {
+      "name": "Clothing ",
+      "id": 11,
+      "is_red":'0'
+    },
+    {
+      "name": "new in ",
+      "id": 12,
+      "is_red":'0'
+    },
+    {
+      "name": "tops",
+      "id": 13,
+      "is_red":'1'
+    },
+    {
       "name": "men's clothing",
-      "id": 1
+      "id": 1,
+      "is_red":'0'
     },
     {
       "name": "jewelery",
-      "id": 2
+      "id": 2,
+      "is_red":'1'
     },
     {
       "name": "electronics",
-      "id": 3
+      "id": 3,
+      "is_red":'0'
     },
     {
       "name": "women's clothing",
-      "id": 4
+      "id": 4,
+      "is_red":'0'
     },
     {
       "name": "jacket",
-      "id": 5
+      "id": 5,
+      "is_red":'0'
     },
     {
       "name": "kids's clothing",
-      "id": 6
+      "id": 6,
+      "is_red":'0'
     },
     {
       "name": "bag",
-      "id": 7
-    }
+      "id": 7,
+      "is_red":'0'
+    },
+    {
+      "name": "PLUS+CURVE",
+      "id": 8,
+      "is_red":'1'
+    },  {
+      "name": "SALE",
+      "id": 9,
+      "is_red":'0'
+    },
+    {
+      "name": "FOLLOW US",
+      "id": 10,
+      "is_red":'0'
+    },
   ]
 }
+
 export async function getStaticProps() {
   const products = data.products
   const categories = data.categories
@@ -289,8 +327,10 @@ export async function getStaticProps() {
 export default function IndexPage({ products, categories }) {
   return (
     <React.Fragment>
-      <Navbar />
-
+      <Head>
+        <title>Commerce STYLEWE</title>
+        <link rel="icon" href="/clothes.png"  />
+      </Head>
       <CategoryList categories={categories} />
       <ProductList products={products} />
     </React.Fragment>

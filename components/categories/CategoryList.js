@@ -1,17 +1,14 @@
 import Link from "next/link"
 import Category from "./Category"
+import Clothes from "./Clothes";
 export default function CategoryList({ categories }) {
   if (!categories) return null
-
   return (
-    <ul>
-      {categories.map((category) => (
-        <li key={category.id}>
-          <Link href={`/categories/${category.id}`}>
-            <Category {...category} />
-          </Link>
-        </li>
-      ))}
-    </ul>
+   <>
+     <div className='container__categories'>
+       <img src='/bag.png' alt='not found'/>
+       <Category categories={categories} />
+     </div>
+   </>
   )
 }

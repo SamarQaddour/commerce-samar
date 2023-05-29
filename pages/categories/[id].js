@@ -1,5 +1,6 @@
 import React, {useEffect} from "react"
 import ProductList from "../../components/product/ProductList"
+import Layout from "../../components/Layout";
 const data = {
   "products": [
     {
@@ -309,12 +310,12 @@ export default function ProductPage({ categories, products }) {
     console.log(categories, "categories")
   }, [categories])
   return (
-    <React.Fragment>
+    <div>
       <div key={categories[0].id}>
         <h3>{categories[0].name}</h3>
       </div>
       <ProductList products={products} />
       <button>Add to Cart</button>
-    </React.Fragment>
+    </div>
   )
 }
